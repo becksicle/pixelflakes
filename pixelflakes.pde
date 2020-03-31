@@ -14,15 +14,15 @@ void setup() {
     size(3000, 2000);
 }
     
-void reset() {
+void reset() {   
+    img = loadImage("[Path to Image]");
+    img.loadPixels();      
+    println("img height: "+img.height+" img width: "+img.width+" tot pixels: "+img.width * img.height);
+    
     xOffset = max(0, (3000 - img.width)/2);
     yOffset = max(0, (2000 - img.height)/2);
     radius = 4;
     println("xoffset: "+xOffset+" yoffset: "+yOffset +" radius: "+radius);
-
-    img = loadImage("[Path to Image]");
-    img.loadPixels();      
-    println("img height: "+img.height+" img width: "+img.width+" tot pixels: "+img.width * img.height);
         
     pixelsToRemove = new IntList();
     for(int y=0; y < img.height; y += radius) {
